@@ -12,6 +12,9 @@
 		38AC4E041F046BD1003180B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AC4E031F046BD1003180B4 /* Assets.xcassets */; };
 		38AC4E071F046BD1003180B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AC4E051F046BD1003180B4 /* Main.storyboard */; };
 		38AC4E121F046BD1003180B4 /* PeopleSorterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4E111F046BD1003180B4 /* PeopleSorterTests.swift */; };
+		38AC4E1D1F046BE1003180B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4E1C1F046BE1003180B4 /* Person.swift */; };
+		38AC4E1F1F046C07003180B4 /* Problem.md in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4E1E1F046C07003180B4 /* Problem.md */; };
+		38AC4E211F046C47003180B4 /* PeopleApiInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4E201F046C47003180B4 /* PeopleApiInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		38AC4E0D1F046BD1003180B4 /* PeopleSorterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeopleSorterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AC4E111F046BD1003180B4 /* PeopleSorterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleSorterTests.swift; sourceTree = "<group>"; };
 		38AC4E131F046BD1003180B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38AC4E1C1F046BE1003180B4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		38AC4E1E1F046C07003180B4 /* Problem.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Problem.md; sourceTree = "<group>"; };
+		38AC4E201F046C47003180B4 /* PeopleApiInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleApiInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 			children = (
 				38AC4DFF1F046BD1003180B4 /* AppDelegate.swift */,
 				38AC4E011F046BD1003180B4 /* ViewController.swift */,
+				38AC4E1C1F046BE1003180B4 /* Person.swift */,
+				38AC4E201F046C47003180B4 /* PeopleApiInterface.swift */,
+				38AC4E1E1F046C07003180B4 /* Problem.md */,
 				38AC4E031F046BD1003180B4 /* Assets.xcassets */,
 				38AC4E051F046BD1003180B4 /* Main.storyboard */,
 				38AC4E081F046BD1003180B4 /* Info.plist */,
@@ -197,7 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AC4E211F046C47003180B4 /* PeopleApiInterface.swift in Sources */,
+				38AC4E1D1F046BE1003180B4 /* Person.swift in Sources */,
 				38AC4E021F046BD1003180B4 /* ViewController.swift in Sources */,
+				38AC4E1F1F046C07003180B4 /* Problem.md in Sources */,
 				38AC4E001F046BD1003180B4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
