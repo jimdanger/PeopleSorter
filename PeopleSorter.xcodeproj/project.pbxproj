@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		388728091F05256F007B435E /* HackRankFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388728081F05256F007B435E /* HackRankFormat.swift */; };
 		38AC4E001F046BD1003180B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4DFF1F046BD1003180B4 /* AppDelegate.swift */; };
 		38AC4E021F046BD1003180B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4E011F046BD1003180B4 /* ViewController.swift */; };
 		38AC4E041F046BD1003180B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AC4E031F046BD1003180B4 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		388728081F05256F007B435E /* HackRankFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackRankFormat.swift; sourceTree = "<group>"; };
 		38AC4DFC1F046BD1003180B4 /* PeopleSorter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeopleSorter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AC4DFF1F046BD1003180B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38AC4E011F046BD1003180B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				38AC4E011F046BD1003180B4 /* ViewController.swift */,
 				38AC4E1C1F046BE1003180B4 /* Person.swift */,
 				38AC4E201F046C47003180B4 /* PeopleApiInterface.swift */,
+				388728081F05256F007B435E /* HackRankFormat.swift */,
 				38AC4E1E1F046C07003180B4 /* Problem.md */,
 				38AC4E031F046BD1003180B4 /* Assets.xcassets */,
 				38AC4E051F046BD1003180B4 /* Main.storyboard */,
@@ -211,6 +214,7 @@
 				38AC4E021F046BD1003180B4 /* ViewController.swift in Sources */,
 				38AC4E1F1F046C07003180B4 /* Problem.md in Sources */,
 				38AC4E001F046BD1003180B4 /* AppDelegate.swift in Sources */,
+				388728091F05256F007B435E /* HackRankFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +419,7 @@
 				38AC4E181F046BD1003180B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		38AC4E191F046BD1003180B4 /* Build configuration list for PBXNativeTarget "PeopleSorterTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				38AC4E1B1F046BD1003180B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

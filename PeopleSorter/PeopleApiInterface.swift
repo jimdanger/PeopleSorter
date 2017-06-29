@@ -10,9 +10,12 @@ import Foundation
 class PeopleApiInterface {
   
     static let instance = PeopleApiInterface()
-
+    private let dispatchGroup = DispatchGroup()
+    
     func fetch (endpoint: String, completion: @escaping (_ people: [Person]) -> Void) {
     
+        
+
         guard let url = NSURL(string: endpoint) else {
             print("Error: cannot create URL")
             return
@@ -21,6 +24,8 @@ class PeopleApiInterface {
         let urlRequest = NSURLRequest(url: url as URL)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
+        
+        
         
         let task = session.dataTask(with: urlRequest as URLRequest, completionHandler: { (data, response, error) in
             
@@ -41,11 +46,16 @@ class PeopleApiInterface {
                     people.append(Person(jsonItem: each))
                 }
                 completion(people)
+                self.dispatchGroup.leave()
             } catch let error {
                 print(error.localizedDescription)
             }
             
         })
         task.resume()
+        dispatchGroup.enter()
+        let _ = self.dispatchGroup.wait(timeout: .now() + .seconds(10))
     }
 }
+
+

@@ -1,15 +1,87 @@
-//
-//  ViewController.swift
-//  PeopleSorter
-//
-//  Created by Jim Wilson on 6/28/17.
-//  Copyright © 2017 Jim Danger, LLC. All rights reserved.
-//
 
-import Cocoa
+/*
+ 
+// Copy this into HackerRank to run there.
 
-class ViewController: NSViewController {
+ 
+import Foundation
 
+class PeopleApiInterface {
+    
+    static let instance = PeopleApiInterface()
+    private let dispatchGroup = DispatchGroup()
+    
+    func fetch (endpoint: String, completion: @escaping (_ people: [Person]) -> Void) {
+        
+        
+        
+        guard let url = NSURL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        
+        let urlRequest = NSURLRequest(url: url as URL)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
+        
+        let task = session.dataTask(with: urlRequest as URLRequest, completionHandler: { (data, response, error) in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard let unwrappeddata = data else {
+                return
+            }
+            
+            do {
+                var people: [Person] = []
+                
+                let dictArray: [[String:Any?]] = try JSONSerialization.jsonObject(with: unwrappeddata, options: .allowFragments) as! [[String:Any?]]
+                
+                for each in dictArray {
+                    people.append(Person(jsonItem: each))
+                }
+                completion(people)
+                self.dispatchGroup.leave()
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+        })
+        task.resume()
+        dispatchGroup.enter()
+        let _ = self.dispatchGroup.wait(timeout: .now() + .seconds(3))
+    }
+}
+
+
+class Person {
+    
+    var id: String
+    var name: String
+    var state: String
+    var age: Int
+    
+    init(id: String, name: String, state: String, age: Int) {
+        self.id = id
+        self.name = name
+        self.state = state
+        self.age = age
+    }
+    
+    init(jsonItem: [String:Any?]) {
+        self.id = jsonItem["id"]! as! String
+        self.name = jsonItem["name"]! as! String
+        self.state = jsonItem["state"]! as! String
+        self.age = jsonItem["age"]! as! Int
+    }
+}
+
+class ProblemRunner {
+    static let instance =  ProblemRunner()
     let baseUrl: String = "http://52.14.36.184/people"
     var pageParam = "?_page="
     static var limit: Int = 20000    //        <--- Adjust this value
@@ -19,36 +91,11 @@ class ViewController: NSViewController {
     var stateBucketDict = Dictionary<String, Int>()
     var statesWithNonEmptyBuckets: [String] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        switch 1 { /// Toggle: 1, 2, or 3 to pick which function to see run.
-        case 1:
-            countYoungAndOld(page: 1)
-            break
-        case 1:
-            countRecordsByStateInBuckets(page: 1)
-            break
-        default:
-            returnMatchingPeople(page: 1, state: "Georgia", age: 31)
-        }
-        
-        
-              
-        
-    }
-
-    override var representedObject: Any? {
-        didSet {
-            
-        }
-    }
-
     /// Count the number of records where the age is not between 18 and 65 (inclusive).
     func countYoungAndOld(page: Int) {
-                
+        
         PeopleApiInterface.instance.fetch(endpoint: makeUrl(page: page)) { (people) in
-
+            
             if !people.isEmpty {
                 for person in people {
                     if person.age <= 18 || person.age >= 65 {
@@ -65,9 +112,9 @@ class ViewController: NSViewController {
     
     // Count the number of records by state in bucketed age groups of 18-25, 26-41, and 41-65.
     func countRecordsByStateInBuckets(page: Int) {
-     
+        
         PeopleApiInterface.instance.fetch(endpoint: makeUrl(page: page)) { (people) in
-
+            
             if !people.isEmpty {
                 
                 for person in people {
@@ -85,14 +132,14 @@ class ViewController: NSViewController {
                 }
                 self.countRecordsByStateInBuckets(page: page + 1)
                 print("fetched page: \(page)")
-
+                
             } else {
                 
                 // print all buckets in order:
                 self.statesWithNonEmptyBuckets.sort()
                 for key in self.statesWithNonEmptyBuckets {
                     if let value: Int = self.stateBucketDict[key] {
-                    print("\(key): \(String(describing: value))")
+                        print("\(key): \(String(describing: value))")
                     }
                 }
             }
@@ -123,7 +170,7 @@ class ViewController: NSViewController {
                 
                 for person in people {
                     if person.age == age && person.state == state {
-                       self.result.append(person)
+                        self.result.append(person)
                     }
                 }
                 
@@ -138,15 +185,42 @@ class ViewController: NSViewController {
         }
     }
     
-
     func makeUrl(page: Int = 1) -> String {
         return baseUrl + pageParam + String(page) + limitParam
     }
 }
+
 
 enum Bucket: String {
     case _18_25 = " 18 to 25" //  formatted so it prints nicely
     case _26_41 = " 26 to 41"
     case _41_65 = " 41 to 65"
 }
+
+// MARK: code that runs when you hit 'Run Code':
+
+
+class Problem {
+    
+    func run(){
+        
+        switch 1 { /// Toggle: 1, 2, or 3 to pick which function to see run.
+        case 1:
+            ProblemRunner.instance.countYoungAndOld(page: 1)
+            break
+        case 1:
+            ProblemRunner.instance.countRecordsByStateInBuckets(page: 1)
+            break
+        default:
+            ProblemRunner.instance.returnMatchingPeople(page: 1, state: "Georgia", age: 31)
+        }
+    }
+}
+
+let p = Problem() 
+p.run()
+
+ 
+ 
+*/
 
